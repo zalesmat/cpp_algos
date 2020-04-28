@@ -7,10 +7,6 @@ namespace mz {
 
 int greatest_common_divisor(int a, int b);
 
-void quick_sort(int arr[], int low, int high, bool (*cmpr)(int, int) = [](int a, int b) {
-    return a < b;
-});
-
 auto default_asc_comparator = [](int a, int b) noexcept(noexcept(a < b))
 {
     return a < b;
