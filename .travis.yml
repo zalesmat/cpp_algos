@@ -1,0 +1,19 @@
+sudo: required
+dist: bionic
+language: cpp
+
+os:
+  - linux
+
+compiler:
+  - clang++
+  - g++
+
+before_script:
+  - mkdir build
+  - cd build
+  - cmake ..
+
+script:
+  - make
+  - ./test/MZ_ALGOS_UT
