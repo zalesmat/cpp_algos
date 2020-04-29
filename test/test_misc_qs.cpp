@@ -128,3 +128,22 @@ TEST(QS, HandlesTenElemArraySorting)
     quick_sort(arr);
     EXPECT_EQ(arr, arrSorted);
 }
+
+TEST(QS, HandlesCustomDescComparator)
+{
+    auto custom_desc_comparator = [](int a, int b) { return a > b; };
+
+    array<int, 3> arr{1, 2, 3};
+    const array<int, 3> arrSorted{3, 2, 1};
+    array<int, 10> arr10{3, 1, 0, 6, 4, 9, 2, 8, 5, 7};
+    const array<int, 10> arr10Sorted{9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+
+    EXPECT_NE(arr, arrSorted);
+    EXPECT_NE(arr10, arr10Sorted);
+
+    quick_sort(arr, custom_desc_comparator);
+    EXPECT_EQ(arr, arrSorted);
+
+    quick_sort(arr10, custom_desc_comparator);
+    EXPECT_EQ(arr10, arr10Sorted);
+}
