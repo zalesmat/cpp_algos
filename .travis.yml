@@ -18,9 +18,3 @@ before_script:
 script:
   - make
   - ./test/MZ_ALGOS_UT
-
-script:
-  - llvm-profdata-6.0 merge -sparse codecov_data.profraw -o codecov_data.profdata
-  - llvm-cov show -format="html" ./test/MZ_ALGOS_UT -instr-profile=codecov_data.profdata -o code_cov
-on:
-  condition: $CC = clang++
