@@ -14,7 +14,6 @@ before_script:
   - cd build
   - cmake ..
 
-
 script:
   - make
   - ./test/MZ_ALGOS_UT
