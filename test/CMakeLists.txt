@@ -1,6 +1,7 @@
 set(algos_ut "MZ_ALGOS_UT")
 
 set(TEST_SRC
+        test_convex_hull.cpp
         test_misc_gcd.cpp
         test_misc_qs.cpp)
 
