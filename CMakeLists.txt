@@ -4,7 +4,8 @@ project(MZ_ALGOS)
 set(CMAKE_CXX_STANDARD 14)
 
 set (SRC
-        src/misc.cpp)
+        src/misc.cpp
+        src/convex_hull.cpp)
 
 set(MZALG "_mz_algos")
 add_library(${MZALG} ${SRC})

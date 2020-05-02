@@ -7,6 +7,7 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 endif()
 
 set(TEST_SRC
+        test_convex_hull.cpp
         test_misc_gcd.cpp
         test_misc_qs.cpp)
 
