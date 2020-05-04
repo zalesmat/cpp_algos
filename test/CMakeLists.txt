@@ -1,21 +1,15 @@
-project(MZ_ALGOS_UT)
-
-if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-    set(CMAKE_CXX_FLAGS "-g -O0 -fprofile-instr-generate=codecov_data.profraw -fcoverage-mapping")
-elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    set(CMAKE_CXX_FLAGS "-g -O0")
-endif()
+set(algos_ut "MZ_ALGOS_UT")
 
 set(TEST_SRC
         test_convex_hull.cpp
         test_misc_gcd.cpp
         test_misc_qs.cpp)
 
-add_executable(${PROJECT_NAME} ${TEST_SRC})
+add_executable(${algos_ut} ${TEST_SRC})
 
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/inc/)
-
-target_link_libraries(${PROJECT_NAME}
+target_include_directories(${algos_ut} PRIVATE ${CMAKE_SOURCE_DIR}/inc/)
+target_compile_options(${algos_ut} PRIVATE "-g" "-O0" ${CLANG_COVERAGE_COMPILE_FLAGS})
+target_link_libraries(${algos_ut}
         gtest
         pthread
         ${MZALG} )
