@@ -3,7 +3,9 @@ project(MZ_ALGOS)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(CLANG_COVERAGE_COMPILE_FLAGS "-fprofile-instr-generate=codecov_data.profraw" "-fcoverage-mapping")
+set(CLANG_COVERAGE_COMPILE_FLAGS
+    "-fprofile-instr-generate=codecov_data.profraw -fcoverage-mapping")
+set(CMAKE_CXX_FLAGS "-g -O0")
 
 set (SRC
         src/misc.cpp)
@@ -12,7 +14,7 @@ set(MZALG "_mz_algos")
 add_library(${MZALG} ${SRC})
 target_include_directories(${MZALG} PRIVATE
         inc/)
-target_compile_options(${MZALG} PRIVATE "-g" "-O0" ${CLANG_COVERAGE_COMPILE_FLAGS})
+set_target_properties(${MZALG} PROPERTIES COMPILE_FLAGS ${CLANG_COVERAGE_COMPILE_FLAGS})
 
 add_executable(${PROJECT_NAME} src/main.cpp)
 target_include_directories(${PROJECT_NAME} PRIVATE inc/)
