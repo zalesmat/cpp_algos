@@ -7,6 +7,7 @@ set(TEST_SRC
 add_executable(${algos_ut} ${TEST_SRC})
 
 target_include_directories(${algos_ut} PRIVATE ${CMAKE_SOURCE_DIR}/inc/)
+
 target_link_libraries(${algos_ut}
         ${CLANG_COVERAGE_COMPILE_FLAGS}
         gtest
