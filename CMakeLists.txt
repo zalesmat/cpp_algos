@@ -8,7 +8,8 @@ set(CLANG_COVERAGE_COMPILE_FLAGS
 set(CMAKE_CXX_FLAGS "-g -O0")
 
 set (SRC
-        src/misc.cpp)
+        src/misc.cpp
+        src/convex_hull.cpp)
 
 set(MZALG "_mz_algos")
 add_library(${MZALG} ${SRC})
