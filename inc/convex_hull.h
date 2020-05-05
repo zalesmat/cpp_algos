@@ -13,9 +13,14 @@ struct vec
     int y_ = 0;
 };
 
-inline bool operator==(vec const& lhs, vec const& rhs) noexcept
+constexpr inline bool operator==(vec const& lhs, vec const& rhs) noexcept
 {
     return lhs.x_ == rhs.x_ && lhs.y_ == rhs.y_;
+}
+
+constexpr inline vec operator-(vec const& lhs, vec const& rhs)
+{
+    return vec{lhs.x_ - rhs.x_, lhs.y_ - rhs.y_};
 }
 
 std::vector<vec> convex_hull(std::vector<vec> const& vecSet);
