@@ -7,7 +7,7 @@
 // definitions in misc.cpp
 namespace mz {
 
-std::vector<int> eratosthenes_sieve(size_t limit);
+std::vector<int> eratosthenes_sieve(short limit);
 
 int greatest_common_divisor(int a, int b);
 

@@ -3,9 +3,12 @@
 
 namespace mz {
 
-std::vector<int> eratosthenes_sieve(size_t limit)
+std::vector<int> eratosthenes_sieve(short limit)
 {
-    std::vector<bool> primes(limit, true);
+    if (limit < 1)
+        throw std::runtime_error("input argument is lower than the smallest prime number");
+
+    std::vector<bool> primes(limit - 1, true);
 
     int firstPrime = 2;
 
