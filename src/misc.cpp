@@ -3,6 +3,30 @@
 
 namespace mz {
 
+std::vector<int> eratosthenes_sieve(short limit)
+{
+    if (limit < 1)
+        throw std::runtime_error("input argument is lower than the smallest prime number");
+
+    std::vector<bool> primes(limit - 1, true);
+
+    int firstPrime = 2;
+
+    for (int i = 0, j = firstPrime; i < limit; ++i, ++j) {
+        if (primes[i]) {
+            for (int k = j + i; k < limit; k += j)
+                primes[k] = false;
+        }
+    }
+
+    std::vector<int> result;
+    for (int i = 0; i < primes.size(); ++i)
+        if (primes[i])
+            result.push_back(firstPrime + i);
+
+    return result;
+}
+
 int greatest_common_divisor(int a, int b)
 {
     if (a != 0) {
