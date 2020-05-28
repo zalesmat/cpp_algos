@@ -20,9 +20,15 @@ std::vector<int> eratosthenes_sieve(short limit)
     }
 
     std::vector<int> result;
+
+    // reserving 1/5 of limit to avoid many dynamic memory allocations
+    result.reserve(limit / 5);
+
     for (int i = 0; i < primes.size(); ++i)
         if (primes[i])
             result.push_back(firstPrime + i);
+
+    result.shrink_to_fit();
 
     return result;
 }
